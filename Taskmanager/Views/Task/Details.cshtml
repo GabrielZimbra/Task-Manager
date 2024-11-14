@@ -1,0 +1,35 @@
+﻿@model Taskmanager.Models.task.TaskViewModel
+<div class="=container mt-5">
+    <h2 class="text-center">Detalhes da Tarefa</h2>
+    <table class="table mt-4">
+        <tr>
+            <th>Título</th>
+            <td>@Model.Title</td>
+        </tr>
+        <tr>
+            <th>Descrição</th>
+            <td>@Model.Description</td>
+        </tr>
+        <tr>
+            <th>Status</th>
+            <td>@Model.IsCompleted</td>
+        </tr>
+    </table>
+
+    <a href="@Url.Action("Edit", "Task", new {id=Model.Id})" class="btn btn-warning"> Editar</a>
+    <a href="@Url.Action("Index", "Task")" class="btn btn-secondary"> Voltar</a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>

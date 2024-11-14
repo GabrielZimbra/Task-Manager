@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Taskmanager.Models.task.TaskViewModel>
+<div class=" container mt-5">
+    <h2 class="text-center ">Lista de Tarefas</h2>
+     <table class=" table table-striped mt-4">
+         <thead class="thead-dark">
+             <tr>
+                 <th>Título</th>
+                 <th>Descrição</th>
+                 <th>Concluído</th>
+                 <th>Ações</th>
+             </tr>
+         </thead>
+            <tbody>
+                @foreach(var task in Model)
+                {
+                    <tr>
+                        <td>@task.Title</td>
+                        <td>@task.Description</td>
+                        <td>@task.IsCompleted</td>
+                        <td>
+                            <a href="@Url.Action("Details", "Task", new {id = task.Id})" class="btn btn-info">Detalhes</a> 
+                            <a href="@Url.Action("Edit", "Task", new {id = task.Id})" class="btn btn-primary">Editar</a> 
+                            <a href="@Url.Action("Delete","Task",  new {id = task.Id})" class="btn btn-danger">Excluir</a> 
+                        </td>
+                    </tr>
+                }
+            </tbody>
+     </table>
+    <a href="@Url.Action("Create", "Task") "class="btn btn-success">Criar Nova Tarefa</a>
+</div>
